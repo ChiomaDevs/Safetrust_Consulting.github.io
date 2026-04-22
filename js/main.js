@@ -72,41 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const contactForm = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
 
-  if (contactForm && formSuccess) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // Simple validation
-      const firstName = document.getElementById('firstName').value.trim();
-      const lastName = document.getElementById('lastName').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      if (!firstName || !lastName || !email || !message) {
-        return;
-      }
-
-      // Simulate form submission
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
+ if (contactForm) {
+    contactForm.addEventListener('submit', function () {
+      var submitBtn = contactForm.querySelector('button[type="submit"]');
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
-
-      setTimeout(function () {
-        contactForm.style.display = 'none';
-        formSuccess.style.display = 'block';
-      }, 1000);
     });
   }
-
-  // --- Smooth scroll for anchor links ---
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-});
