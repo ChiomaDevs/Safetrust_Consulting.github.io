@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // --- Contact form handling ---
   const contactForm = document.getElementById('contactForm');
-  //const formSuccess = document.getElementById('formSuccess');
+  const formSuccess = document.getElementById('formSuccess');
 
   if (contactForm) {
     contactForm.addEventListener('submit', function () {
@@ -79,3 +79,16 @@ document.addEventListener('DOMContentLoaded', function () {
       submitBtn.disabled = true;
     });
   }
+
+  // --- Smooth scroll for anchor links ---
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+});
