@@ -70,9 +70,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // --- Contact form handling ---
   const contactForm = document.getElementById('contactForm');
- // const formSuccess = document.getElementById('formSuccess');
+  //const formSuccess = document.getElementById('formSuccess');
 
- if (contactForm) {
+  if (contactForm) {
     contactForm.addEventListener('submit', function () {
       var submitBtn = contactForm.querySelector('button[type="submit"]');
       submitBtn.textContent = 'Sending...';
